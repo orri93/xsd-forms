@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
+
 	<groupId>com.github.davidmoten.xsdforms</groupId>
 	<artifactId>xsd-forms</artifactId>
 	<version>0.2.2-SNAPSHOT</version>
@@ -15,12 +11,12 @@
 	<url>http://github.com/davidmoten/xsd-forms</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.10.3</scala.version>
-		<scala.plugin.version>3.1.6</scala.plugin.version>
-		<scalaxb.plugin.version>1.1.2</scalaxb.plugin.version>
+		<scala.version>2.12.7</scala.version>
+		<scala.plugin.version>3.4.4</scala.plugin.version>
+		<scalaxb.plugin.version>1.5.0</scalaxb.plugin.version>
 		<compiler.plugin.version>3.1</compiler.plugin.version>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
 		<cobertura.version>2.6</cobertura.version>
 		<cobertura.skip>false</cobertura.skip>
@@ -41,7 +37,7 @@
 		<coverage.reports.dir>${project.build.directory}/target/coverage-reports</coverage.reports.dir>
 	</properties>
 
-    <licenses>
+  <licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
@@ -50,12 +46,12 @@
 		</license>
 	</licenses>
 
-    <ciManagement>
+  <ciManagement>
 		<system>CloudBees</system>
 		<url>https://xuml-tools.ci.cloudbees.com</url>
 	</ciManagement>
 
-    <issueManagement>
+  <issueManagement>
 		<system>GitHub</system>
 		<url>https://github.com/davidmoten/xsd-forms/issues</url>
 	</issueManagement>

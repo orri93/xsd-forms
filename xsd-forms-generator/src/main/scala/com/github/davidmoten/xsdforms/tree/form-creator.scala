@@ -851,7 +851,9 @@ private[xsdforms] class FormCreator(override val options: Options,
       .replace("/* EXTRA_CSS */", configuration.flatMap(_.extraCss).mkString(""))
       .replace("<!--GENERATED_HTML-->", html.toString)
 
+/*
   <!-- move to object -->
+*/
 
   private def xmlStart(node: Node) =
     node.element.name match {
