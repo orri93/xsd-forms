@@ -31,42 +31,45 @@ import org.apache.maven.plugins.annotations.Parameter;
  * Goal which generates file list.
  * 
  */
-@Mojo(name = "list", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, threadSafe = true)
+@Mojo(name = "list", defaultPhase = LifecyclePhase.GENERATE_RESOURCES,
+    threadSafe = true)
 public class FileListMojo extends AbstractMojo {
-	/**
-	 * The file to contain the file list.
-	 * 
-	 */
-	@Parameter(property = "output", defaultValue = "${project.build.directory}/generated-resources/file-list.txt")
-	private File output;
+  /**
+   * The file to contain the file list.
+   * 
+   */
+  @Parameter(property = "output",
+      defaultValue = "${project.build.directory}/generated-resources/file-list.txt")
+  private File output;
 
-	/**
-	 * The directory to list.
-	 * 
-	 */
-	@Parameter(property = "directory", defaultValue = "${basedir}/src/main/resources")
-	private File directory;
+  /**
+   * The directory to list.
+   * 
+   */
+  @Parameter(property = "directory",
+      defaultValue = "${basedir}/src/main/resources")
+  private File directory;
 
-	@Parameter(property = "prefix", defaultValue = "")
-	private String prefix;
+  @Parameter(property = "prefix", defaultValue = "")
+  private String prefix;
 
-	@Override
-	public void execute() throws MojoExecutionException {
-		if (prefix == null)
-			prefix = "";
-		getLog().info(
-				"writing list of " + directory + " to " + output
-						+ " with prefix " + prefix);
-		String list = FileLister.listFiles(prefix, directory);
-		getLog().info("list=\n"+list);
-		output.getParentFile().mkdirs();
-		try {
-			FileOutputStream fos = new FileOutputStream(output);
-			fos.write(list.getBytes(Charset.forName("UTF-8")));
-			fos.close();
-		} catch (IOException e) {
-			throw new MojoExecutionException(e.getMessage(), e);
-		}
-		getLog().info("written to " + output);
-	}
+  @Override
+  public void execute() throws MojoExecutionException {
+    if (prefix == null)
+      prefix = "";
+    getLog().info(
+        "writing list of " + directory + " to " + output
+            + " with prefix " + prefix);
+    String list = FileLister.listFiles(prefix, directory);
+    getLog().info("list=\n" + list);
+    output.getParentFile().mkdirs();
+    try {
+      FileOutputStream fos = new FileOutputStream(output);
+      fos.write(list.getBytes(Charset.forName("UTF-8")));
+      fos.close();
+    } catch (IOException e) {
+      throw new MojoExecutionException(e.getMessage(), e);
+    }
+    getLog().info("written to " + output);
+  }
 }

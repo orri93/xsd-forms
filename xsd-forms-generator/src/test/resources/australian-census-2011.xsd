@@ -178,7 +178,7 @@
   </xs:simpleType>
 
   <xs:simpleType name="always-true">
-    <xs:restriction base="boolean">
+    <xs:restriction base="xs:boolean">
       <xs:enumeration value="true" />
     </xs:restriction>
   </xs:simpleType>
